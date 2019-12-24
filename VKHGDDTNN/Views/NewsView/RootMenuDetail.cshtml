@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = @Html.Raw(ViewBag.tit);
+    ViewBag.des = @Html.Raw(ViewBag.des);
+    ViewBag.key = @Html.Raw(ViewBag.key);
+    Layout = "~/Views/Shared/_SubLayout.cshtml";
+}
+
+<section class="col-8 main">
+    <div class="main-wrapper home-box">
+        <div class="main-title">
+            <a href="/"><span>Trang chủ /</span></a>
+            <a href="@Html.Raw(ViewBag.RootMenuLink)"><span>@Html.Raw(ViewBag.RootMenuName)/</span></a>
+         
+
+        </div>
+        <div class="container">
+
+            <div class="col-12 mid-content news-detail">
+                <div class="sub-title">
+                    <a href="@Html.Raw(ViewBag.RootMenuLink)" class="menu1">@Html.Raw(ViewBag.RootMenuName)</a>
+                </div>
+                <p>
+                    <b>
+                        @Html.Raw(ViewBag.RootMenuContent)
+                    </b>
+                </p>
+                <p>@Html.Raw(ViewBag.RootMenuDetail)</p>
+            </div>
+        </div>
+    </div>
+
+</section>

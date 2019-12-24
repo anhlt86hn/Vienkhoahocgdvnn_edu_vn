@@ -1,0 +1,57 @@
+﻿<div id="support">
+
+
+    <div id="top-sp">
+        <img id="img1" src="http://daynghebacha.edu.vn/skin/images/support.gif" alt="icon support">
+        <h4>Hỗ trợ trực tuyến</h4>
+        <a class="img2">&nbsp;</a>
+    </div>
+    <div id="body-sp">
+
+        <p>
+            Điện thoại tư vấn 1:<span class="phone_num"> 0466 592 255</span><br>
+            <a href="ymsgr:sendIm?Điện thoại tư vấn 1">
+                <img class="img_yh" src="http://opi.yahoo.com/online?u=Điện thoại tư vấn 1&amp;m=g&amp;t=1" height="16" width="64">
+            </a>
+            <a href="Skype:Điện thoại tư vấn 1?chat">
+                <img class="img_sk" src="http://daynghebacha.edu.vn/skin/images/skype.gif">
+            </a>
+        </p>
+
+        <p>
+            Hotline:<span class="phone_num"> 0904 801 455  -  0917 419 988</span><br>
+            <a href="ymsgr:sendIm?Hotline">
+                <img class="img_yh" src="http://opi.yahoo.com/online?u=Hotline&amp;m=g&amp;t=1" height="16" width="64">
+            </a>
+            <a href="Skype:Hotline?chat">
+                <img class="img_sk" src="http://daynghebacha.edu.vn/skin/images/skype.gif">
+            </a>
+        </p>
+
+        <p>
+            Điện thoại tư vấn 2:<span class="phone_num"> 0463 275 959</span><br>
+            <a href="ymsgr:sendIm?Điện thoại tư vấn 2">
+                <img class="img_yh" src="http://opi.yahoo.com/online?u=Điện thoại tư vấn 2&amp;m=g&amp;t=1" height="16" width="64">
+            </a>
+            <a href="Skype:Điện thoại tư vấn 2?chat">
+                <img class="img_sk" src="http://daynghebacha.edu.vn/skin/images/skype.gif">
+            </a>
+        </p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#top-sp').on('click', function () {
+            var check = $('.img2').attr('class');
+            if (check == 'img2') {
+                $('.img2').addClass('down');
+                $('#body-sp').show('slow');
+            } else {
+                $('#body-sp').hide('slow');
+                $('.img2').removeClass('down');
+            }
+        })
+    });
+
+</script>

@@ -1,0 +1,41 @@
+﻿@*@model VKHGDDTNN.Models.Product*@
+@*@model PagedList.IPagedList<VKHGDDTNN.Models.Product>*@
+@*@section Scripts
+{
+
+
+
+}*@
+
+<section id="ThucDon">
+    
+    <section class="content">
+        <section id="LineTopProductHome"></section>
+
+        <header class="big-title-home">
+        <a href="/thuc-don" class="name"></a>
+        </header>
+        <section id="DSThucDon">
+            <ul>
+        @Html.Raw(ViewBag.ThucDon)
+            </ul>
+        </section>
+            @*<a class="btn-prev-prohome" href="javascript://"></a>
+            <a class="btn-next-prohome" href="javascript://"></a>*@
+      <a class="btn-prev-prohome" href="#"></a>
+    <a class="btn-next-prohome" href="#"></a>
+    </section>
+</section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#DSThucDon").jCarouselLite({
+            speed: 1000,
+            visible: 1,
+            scroll: 1,
+            auto: false,
+            btnNext: ".btn-next-prohome",
+            btnPrev: ".btn-prev-prohome"
+        });
+    })
+</script>

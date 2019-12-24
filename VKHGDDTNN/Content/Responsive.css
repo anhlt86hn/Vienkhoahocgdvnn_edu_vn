@@ -1,0 +1,44 @@
+﻿/* CSS Global Responsive */
+@media screen and (max-width:1066px) {   
+}
+
+@media screen and (max-width:960px) {      
+    #menu, #pretty-menu {display:none;}	
+    .responsive-navigation, #main-menu {display:none;}
+	.slicknav_menu 
+    {
+        width:100%;
+		display:block;
+         position:fixed;
+        top:0;
+        z-index:200;
+	}    
+  /* For mobile phones: */[class*="col-"] {width: 100%;}
+}
+
+@media only screen and (max-width: 960px) {
+}
+
+@media only screen and (max-width:768px) {
+}
+
+@media only screen and (max-width:640px) {
+
+}
+
+@media screen and (max-width:540px) {
+ 
+}
+
+@media only screen and (max-width:480px) {
+}
+
+@media screen and (max-width:320px) {
+ 
+}
+
+@media only screen and (max-width:320px) {
+}
+
+
+

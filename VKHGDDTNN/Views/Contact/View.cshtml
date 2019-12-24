@@ -1,0 +1,53 @@
+﻿@model VKHGDDTNN.Models.Contact
+@{
+    ViewBag.Title = "Xem phản hồi/ liên hệ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section Scripts
+{
+  
+}
+
+<div class="container-fluid">
+    <div style="width: 100%; margin: 0 auto;">
+
+        <div id="Breadcrumb" class="Block Breadcrumb ui-widget-content ui-corner-top ui-corner-bottom">
+            <ul>
+                <li><a href='/admin/bai-viet'><i class="icon-home" style="font-size: 14px;"></i>Trang chủ</a></li>
+                <li class='SecondLast'><a href='/admin/phan-hoi'>Phản hồi</a></li>
+                <li class='Last'><a href='/admin/phan-hoi/xem-chi-tiet?id=@Html.Raw(ViewBag.ContactId)'>Xem phản hồi/ liên hệ</a></li>
+            </ul>
+        </div>
+
+        <div style="clear: both;"></div>
+
+        <div class="label">Họ tên người gửi:</div> <div class="label name"> @Model.Name</div> <br/>
+        <div class="label">Tiêu đề phản hồi:</div>
+        <div class="label name">
+            @Model.Title</div> <br />
+        <div class="label">
+            Email: </div>
+        <div class="label name">
+            @Model.Email
+        </div> <br />
+        <div class="label">
+            Số điện thoại:
+        </div>
+        <div class="label name">
+            @Model.Phone
+        </div> <br />
+            <div class="label">
+                Ngày gửi
+            </div>
+        <div class="label name">
+            @Model.SDate
+        </div> <br />
+                <div class="label">
+                    Nội dung chi tiết:
+                </div>
+        <div class="text">
+            @Model.Detail
+        </div> <br />
+                </div>
+</div>
+

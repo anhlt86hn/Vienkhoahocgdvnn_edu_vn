@@ -1,0 +1,111 @@
+﻿
+<section id="network" class="row partner">
+    <div class="heading-linked" style="height: 30px;background:#46a8df;width:100%;">
+        <div class="col-10 inner" style="padding: 0px;"><h6 style="text-align: left;">Liên kết</h6></div>
+    </div>
+    <div class="col-10 inner">
+
+        <ul>
+            <li><img alt="partner-1" src="/Content/Images/partner-1.png" height="95" /></li>
+            <li><img alt="partner-2" src="/Content/Images/partner-2.png" height="95" /></li>
+            <li><img alt="partner-3" src="/Content/Images/partner-3.png" height="95" /></li>
+            <li><img alt="partner-4" src="/Content/Images/partner-4.png" height="95" /></li>
+            <li><img alt="partner-5" src="/Content/Images/partner-1.png" height="95" /></li>
+            <li><img alt="partner-6" src="/Content/Images/partner-2.png" height="95" /></li>
+
+            @*<li><a href="http://www.moet.edu.vn/?page=9.0"><img src="http://daynghebacha.edu.vn/upload/images/slide_bot/ad1.png" height="95" /></a></li>
+            <li><a href="http://www.moet.gov.vn/?page=9.6"><img src="http://daynghebacha.edu.vn/upload/images/slide_bot/ad2.png" height="95" /></a></li>
+            <li><a href="http://www.hanoi.edu.vn/"><img src="http://daynghebacha.edu.vn/upload/images/slide_bot/ad3.png" height="95" /></a></li>
+            <li><a href="http://solaodong.hanoi.gov.vn/"><img src="http://daynghebacha.edu.vn/upload/images/slide_bot/ad4.png" height="95" /></a></li>
+            <li><a href="http://www.moet.gov.vn/?page=9.6"><img src="http://daynghebacha.edu.vn/upload/images/slide_bot/ad1.png" height="95" /></a></li>
+            <li><a href="www.hanoi.edu.vn/"><img src="http://daynghebacha.edu.vn/upload/images/slide_bot/ad3.png" height="95" /></a></li>*@
+        </ul>
+    </div>
+
+</section>
+
+<script>
+
+    $(window).load(function () {
+
+        $('.partner').each(function () {
+
+            var jmarquee = $(this),
+
+                jwrap = jmarquee.find('ul:first'),
+
+                jitems = jwrap.children(),
+
+                displaywidth = jmarquee.outerWidth(true),
+
+                itemwidth = jitems.eq(0).outerWidth(true),
+
+                nvisible = Math.ceil(displaywidth / itemwidth),
+
+                nitems = jitems.length,
+
+                totalwidth = 0,
+
+                ndups = Math.round(nvisible + 3);
+
+
+
+            for (var i = 0; i < nitems; i++) {
+
+                totalwidth += jitems.eq(i).outerWidth(true);
+
+            }
+
+
+
+            for (var i = 0; i < ndups; i++) {
+
+                jitems.eq(i).clone(true).appendTo(jwrap);
+
+            }
+
+
+
+            var marginleft = 0,
+
+                run = function () {
+
+                    marginleft++;
+
+                    if (marginleft >= totalwidth) {
+
+                        marginleft = 0;
+
+                    }
+
+
+
+                    jwrap.css('marginLeft', -marginleft);
+
+                },
+
+                runid = null;
+
+
+
+            runid = setInterval(run, 17);
+
+
+
+            jmarquee.mouseenter(function () {
+
+                clearInterval(runid);
+
+            }).mouseleave(function () {
+
+                clearInterval(runid);
+
+                runid = setInterval(run, 17);
+
+            });
+
+        });
+
+    });
+
+</script>

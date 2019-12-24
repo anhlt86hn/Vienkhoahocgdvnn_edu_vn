@@ -1,0 +1,334 @@
+﻿@model VKHGDDTNN.Models.Picture
+@{
+    ViewBag.Title = "ImageCreate";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section Scripts
+{
+    <!-- Validate Data -->
+    <script type="text/javascript">
+
+        (function ($, W, D) {
+
+            var JQUERY4U = {};
+
+            JQUERY4U.UTIL =
+            {
+                setupFormValidation: function () {
+                    //validation rules
+                    $("#Image-form").validate({
+                        rules: {
+                            Name: "required",
+                            Ord: {
+                                required: true,
+                                number: true
+                            },
+                        },
+                        messages: {
+                            Name: "Phải nhập tên ảnh",
+                            Ord: {
+                                required: "Phải nhập thứ tự",
+                                number: "Phải nhập kiểu số",
+                            },
+                        },
+                        submitHandler: function (form) {
+                            form.submit();
+                        }
+                    });
+                }
+            }
+
+            //when the dom has loaded setup form validation rules
+            $(D).ready(function ($) {
+                JQUERY4U.UTIL.setupFormValidation();
+            });
+
+        })(jQuery, window, document);
+    </script>
+    <!-- End Validate Data -->
+}
+
+<div class="container-fluid">
+    <div style="width: 100%; margin: 0 auto;">
+
+        <div id="Breadcrumb" class="Block Breadcrumb ui-widget-content ui-corner-top ui-corner-bottom">
+            <ul>
+                <li><a href='/admin/default'><i class="icon-home" style="font-size: 14px;"></i>Trang quản trị</a></li>
+                <li class='SecondLast'><a href='/admin/anh'>Danh sách ảnh</a></li>
+                <li class='Last'><a href='/admin/anh/sua?id=@Html.Raw(ViewBag.Id)'>Sửa ảnh</a></li>
+            </ul>
+        </div>
+
+        <div style="clear: both;"></div>
+
+        @using (Html.BeginForm("Edit", "Picture", FormMethod.Post, new { enctype = "multipart/form-data", @id = "Image-form", @class = "validate-form" }))
+        {
+            @Html.HiddenFor(mm=>mm.Id)
+            
+            <div id="cph_Main_ContentPane">
+                <div class="widget">
+                    <!-- widget-title -->
+                    <div class="widget-title">
+                        <h4><i class="icon-reorder"></i>&nbsp;Sửa ảnh</h4>
+
+                        <!-- Button -->
+                        <div class="ui-corner-top ui-corner-bottom">
+                            <div id="toolbox">
+
+                                <div style="float: right;" class="toolbox-content">
+
+                                    <table class="toolbar">
+                                        <tr>
+                                            <td align="center">
+                                                <button type="submit" class="toolbar btn btn-info"><i class="icon-save"></i>&nbsp;Ghi lại</button>
+                                            </td>
+                                            <td align="center">
+                                                <a title="Quay lại" class="toolbar btn btn-info" href="javascript:history.go(-1)"><i class="icon-chevron-left"></i>&nbsp;Trở về</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Button -->
+
+                        <div id="hiddenToolBarScroll" class="scrollBox hidden">
+                            <h4><i class="icon-reorder"></i>&nbsp;Sửa ảnh</h4>
+                            <div class="FloatMenuBar">
+                             
+
+
+                                <div class="ui-corner-top ui-corner-bottom">
+                            <div id="toolbox">
+
+                                <div style="float: right;" class="toolbox-content">
+
+                                    <table class="toolbar">
+                                        <tr>
+                                            <td align="center">
+                                                <button type="submit" class="toolbar btn btn-info"><i class="icon-save"></i>&nbsp;Ghi lại</button>
+                                            </td>
+                                            <td align="center">
+                                                <a title="Quay lại" class="toolbar btn btn-info" href="javascript:history.go(-1)"><i class="icon-chevron-left"></i>&nbsp;Trở về</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- widget-title -->
+
+                    <!-- widget-body -->
+                    <div class="widget-body">
+                        <div id="tabs">
+                            <div id="tabs-1">
+
+                                <table class="admintable" style="width: 100%;">
+                                    <tr>
+                                        <td class="key">Tên ảnh<span class="Required">*</span></td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Name, "", new { @class = "text" })
+                                            <span class="tooltip-help"><span class="tooltipContent">
+                                                <p class="tooltiptitle">
+                                                    Tên ảnh
+                                                </p>
+                                                <p class="tooltipmessage">
+                                                    Tên của ảnh 
+                                                </p>
+                                            </span></span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="key">Upload ảnh<span class="Required">*</span></td>
+                                        <td>
+                                            @Html.TextBoxFor(mm => mm.Image, "", new { @class = "text" }) &nbsp;
+                                        
+                                            <input id="SelectImage" type="button" value="Chọn ảnh" />
+                                            <span class="tooltip-help"><span class="tooltipContent">
+                                                <p class="tooltiptitle">
+                                                    Upload ảnh
+                                                </p>
+                                                <p class="tooltipmessage">
+                                                    Upload ảnh
+                                                </p>
+                                            </span></span>
+                                        </td>
+                                    </tr>                                    
+
+                                    <tr>
+                                        <td class="key">Độ rộng ảnh<span class="Required">*</span></td>
+                                        <td>
+                                            @Html.TextBoxFor(mm => mm.Width, "", new { @class = "text" })
+                                            <span class="tooltip-help"><span class="tooltipContent">
+                                                <p class="tooltiptitle">
+                                                    Độ rộng ảnh
+                                                </p>
+                                                <p class="tooltipmessage">
+                                                    Độ rộng của ảnh
+                                                </p>
+                                            </span></span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="key">Chiều cao ảnh<span class="Required">*</span></td>
+                                        <td>
+                                            @Html.TextBoxFor(mm => mm.Height, "", new { @class = "text" })
+                                            <span class="tooltip-help"><span class="tooltipContent">
+                                                <p class="tooltiptitle">
+                                                    Chiều cao ảnh
+                                                </p>
+                                                <p class="tooltipmessage">
+                                                    Chiều cao của ảnh
+                                                </p>
+                                            </span></span>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td class="key">Thứ tự <span class="Required">*</span></td>
+                                        <td>
+                                            @Html.TextBoxFor(mm => mm.Ord, "", new { @onkeypress = "OnlyInputNumber(0)" })
+                                            <span class="tooltip-help"><span class="tooltipContent">
+                                                <p class="tooltiptitle">
+                                                    Thứ tự ảnh
+                                                </p>
+                                                <p class="tooltipmessage">
+                                                    Thứ tự ảnh
+                                                </p>
+                                            </span></span>
+                                        </td>
+                                    </tr>
+                                    
+                              
+
+                                    <tr>
+                                        <td class="key">Trạng thái <span class="Required"></span></td>
+                                        <td>
+                                            @Html.CheckBox("Active", new { id = "Active", @class = "chk" })
+                                            <span class="tooltip-help">
+                                                <span class="tooltipContent">
+                                                    <p class="tooltiptitle">
+                                                        Trạng thái hiển thị của ảnh
+                                                    </p>
+                                                    <p class="tooltipmessage">
+                                                        ảnh đang được kích hoạt hay không
+                                                    </p>
+                                                </span>
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="key">Target <span class="Required"></span></td>
+                                        <td>
+                                            @Html.DropDownList("Target")
+                                            <span class="tooltip-help"><span class="tooltipContent">
+                                                <p class="tooltiptitle">
+                                                    Target của link ảnh
+                                                </p>
+                                                <p class="tooltipmessage">
+                                                    Target của link ảnh
+                                                </p>
+                                            </span></span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="key">Vị trí đặt ảnh<span class="Required"></span></td>
+                                        <td>
+                                            @Html.DropDownList("Position")
+                                            @*@Html.DropDownListFor(m => m.Position, new SelectList("sslPosition","","",""))*@
+                                            <span class="tooltip-help"><span class="tooltipContent">
+                                                <p class="tooltiptitle">
+                                                    Vị trí của ảnh
+                                                </p>
+                                                <p class="tooltipmessage">
+                                                    Vị trí của ảnh
+                                                </p>
+                                            </span></span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="key">Link ảnh<span class="Required">*</span></td>
+                                        <td>
+                                            @Html.TextBoxFor(mm => mm.Link, "", new { @class = "text" })
+                                            <span class="tooltip-help"><span class="tooltipContent">
+                                                <p class="tooltiptitle">
+                                                    Link ảnh
+                                                </p>
+                                                <p class="tooltipmessage">
+                                                    Link của ảnh 
+                                                </p>
+                                            </span></span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="key">Mô tả chi tiết<span class="Required"></span></td>
+                                        <td>
+                                            @Html.TextArea("Description")
+                                            <span class="tooltip-help"><span class="tooltipContent">
+                                                <p class="tooltiptitle">
+                                                    Mô tả chi tiết cho ảnh
+                                                </p>
+                                                <p class="tooltipmessage">
+                                                    Mô tả ảnh
+                                                </p>
+                                            </span></span>
+                                        </td>
+                                    </tr>
+
+                             
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- widget-body -->
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    var editor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+
+    $(function () {
+        createEditor('vi', 'Description');
+    });
+
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#SelectImage").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#Image").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+</script>
+
+
+

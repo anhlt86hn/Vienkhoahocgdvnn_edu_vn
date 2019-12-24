@@ -1,0 +1,33 @@
+﻿#QuangCao
+{
+    width:980px;
+    height:auto;
+    /*padding:16px 0 10px 0;*/
+   padding-top:10px;
+    overflow:hidden;
+    margin:0 auto;
+    display:table;
+}
+
+
+#LeftAdvHome {
+    width:485px;
+    height:109px;
+    background: url(/content/images/advhome1.png);
+    background-size:485px 109px;
+    float:left;
+    margin-right:4px;
+    position:relative;
+    border-radius:5px;
+}
+
+#RightAdvHome {
+    width:487px;
+    height:105px;
+    background: url(/content/images/advhome2.png);
+    background-size:487px 105px;
+    float:left;
+    margin-left:4px;
+    position:relative;
+    border-radius:5px;
+}

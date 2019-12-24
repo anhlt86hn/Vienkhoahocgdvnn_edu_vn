@@ -1,0 +1,158 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList<VKHGDDTNN.Models.Picture>
+
+@{
+    ViewBag.Title = "Danh sách ảnh | Quản Trị Hệ Thống";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section Styles
+{
+    <!--Sử dụng cho Confirm delete-->
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+
+    <!--Sử dụng cho Phân trang-->
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+    <!--Sử dụng cho Confirm delete-->
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.easy-confirm-dialog.js"></script>
+
+    <!--Confirm xóa-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".yesno").easyconfirm({
+                locale: { title: 'Xóa', button: ['Hủy', 'Xóa'] }
+            });
+        
+            $(".deletemultiple").easyconfirm({
+                locale: { title: 'Xóa', button: ['Hủy', 'Xóa'] }
+            });
+        })
+    </script>
+
+    <!--Tim kiem quang cao theo vi tri-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Position').change(function () {
+                //$('#ajaxImage').css('backgroundColor', 'green');
+                //alert("vao roiiiiii");
+                var positionSearch = $('#Position').val();
+                //alert(posstionSearch);
+                jQuery.ajax({
+                    url: '@Url.Action("Index", "Picture")',
+                    type: 'Post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ positionSearch: positionSearch }),
+                    success: function (result) {
+                        //alert(result);
+                        //$('#ajaxImage').css('backgroundColor', 'green');
+                        $('#DataTable').html(result);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!--Search-->
+    <script type="text/javascript">    
+    $(function () {
+        $(".alert").hide();
+        ///
+        $("#btnSearch").click(function () {
+            //your code            
+            var searchString = $("#txtImage").val();
+            //alert(searchString);
+            if (searchString != "") {
+                $.post("/admin/anh/tim-kiem", { "searchString": searchString },
+                    function (data) {
+                            $(".alert").replaceWith("<div class='alert alert-info'>Nhìn đi tìm thấy rồi</div>");
+                            $(".alert").fadeOut(1000);
+                            $('#DataTable').html(data);
+                    });
+            }
+            else {
+                $(".alert").replaceWith("<div class='alert alert-error'>Phải nhập đầy đủ dữ liệu.</div>");
+                $(".alert").fadeOut(5000);
+            }
+        });
+    });
+</script>
+}
+
+@using (Html.BeginForm("MultiCommand", "Picture", FormMethod.Post, new { @id = "Image-form" }))
+{   
+    <div class="container-fluid">
+        <div style="width: 100%; margin: 0 auto;">
+            <div id="Breadcrumb" class="Block Breadcrumb ui-widget-content ui-corner-top ui-corner-bottom">
+                <ul>
+                    <li class="SecondLast"><a href='/admin/default'><i class="icon-home" style="font-size: 14px;"></i>Trang quản trị</a></li>
+                    <li class='Last'><a href='/admin/anh'>Danh sách ảnh</a></li>
+                   
+                </ul>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="cph_Main_ContentPane">
+                <!--widget-->
+                <div class="widget">
+                    <!--widget-title-->
+                    <div class="widget-title">
+                        <h4><i class="icon-list-alt"></i>&nbsp;Danh sách ảnh</h4>
+                        <!-- begin menu -->
+                        @Html.Partial("_RightNav")
+                        <!-- end menu -->
+
+                        <div id="hiddenToolBarScroll" class="scrollBox hidden">
+                            <h4><i class="icon-list-alt"></i>&nbsp;Danh sách ảnh</h4>
+                            <div class="FloatMenuBar">
+                                <!-- begin menu -->
+                                @Html.Partial("_RightNav")
+                                <!-- end menu -->
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--widget-title-->
+
+                    <!--widget-body-->
+                    <div class="widget-body">
+                        <div class="row-fluid">
+                            <!-- Loc Theo Quang Cao -->
+                            <div class="span3">
+                                <div id="sample_1_length" class="dataTables_length">
+                                    @Html.DropDownList("Position", "Tất cả")
+                                </div>
+                            </div>
+                            <!-- Loc Theo Quang Cao -->
+                            <!--Paging-->
+                            <div class="span9">
+                                <div class="span9 form-search pull-right text-right">
+                                <input name="searchImage" type="text" maxlength="100" id="txtImage" placeholder="Nhập tên ảnh" style="width: 200px;" />   
+                                    <label name="search" id="btnSearch" class="toolbar btn btn-info"><i class="icon-search"></i> Tìm kiếm</label>
+                            </div>
+                            </div>
+                            <!--Paging-->
+                        </div>
+                        <!-- Table Data-->
+                        @{Html.RenderPartial("_Data", Model);}
+                        <!-- Table Data-->
+
+                    </div>
+                    <!--widget-body-->
+                </div>
+                <!--widget-->
+            </div>
+
+        </div>
+    </div>
+}
+
+
+
+

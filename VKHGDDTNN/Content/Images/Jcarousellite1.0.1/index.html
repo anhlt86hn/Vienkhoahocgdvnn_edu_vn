@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="content/ProductHome.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="scripts/jcarousellite1.0.1.styles.js"></script>
+    <script src="scripts/jcarousellite1.0.1.js"></script>
+</head>
+<body>
+
+    <div id="ProductHome">
+        <div class="content">
+            <div class="header">
+                <a href="" class="name">Jcarousel Lite 1.0.1</a>
+                <div class="des">
+                </div>
+            </div>
+
+            <div id="ProductListHome">
+                <ul>
+                    <li class='item'><div class='imgframe'><a class='image' href='' title='A'><img alt="a" class="" src="content/images/jcarousellite1.0.1/01.jpg" /></a></div><a class='name' href='' title='a'>A</a></li>
+                    <li class='item'><div class='imgframe'><a class='image' href='' title='A'><img alt="a" class="" src="content/images/jcarousellite1.0.1/02.jpg" /></a></div><a class='name' href='' title='a'>A</a></li>
+                    <li class='item'><div class='imgframe'><a class='image' href='' title='A'><img alt="a" class="" src="content/images/jcarousellite1.0.1/03.jpg" /></a></div><a class='name' href='' title='a'>A</a></li>
+                    <li class='item'><div class='imgframe'><a class='image' href='' title='A'><img alt="a" class="" src="content/images/jcarousellite1.0.1/04.jpg" /></a></div><a class='name' href='' title='a'>A</a></li>
+                    <li class='item'><div class='imgframe'><a class='image' href='' title='A'><img alt="a" class="" src="content/images/jcarousellite1.0.1/02.jpg" /></a></div><a class='name' href='' title='a'>A</a></li>
+                    <li class='item'><div class='imgframe'><a class='image' href='' title='A'><img alt="a" class="" src="content/images/jcarousellite1.0.1/03.jpg" /></a></div><a class='name' href='' title='a'>A</a></li>
+                </ul>
+            </div>
+            <a class="btn-next-prohome" href="javascript://"></a>
+            <a class="btn-prev-prohome" href="javascript://"></a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#ProductListHome").jCarouselLite({
+                speed: 1000,
+                visible: 1,
+                scroll: 1,
+                auto: false,
+                btnNext: ".btn-next-prohome",
+                btnPrev: ".btn-prev-prohome"
+            });
+        })
+    </script>
+  
+</body>
+</html>

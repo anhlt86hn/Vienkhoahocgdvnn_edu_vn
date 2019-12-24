@@ -1,0 +1,70 @@
+﻿
+.header
+{
+margin:0;padding:0;
+display:table;
+background: #2897DA none repeat scroll 0% 0%;
+/*background: #fff none repeat scroll 0% 0%;*/
+width:100%;
+}
+
+.banner {
+    width:1100px;
+    height:119px;
+    margin:0 auto;
+    padding:0;
+    float:none;
+    background:url(../Uploads/files/banner.jpg) no-repeat scroll 0% 0%;
+    /*background:url(../Uploads/files/test.png) no-repeat scroll 0% 0%;*/
+}
+
+
+/*.header img {margin:0 auto;width:100%;padding:0;height:100%;}*/
+
+.main-navigation {margin:0;padding:0;background: #3193C0 -moz-linear-gradient(center top , #4CB1E0 0%, #1675A1 100%) repeat scroll 0% 0%;}
+#main-menu {padding:0;}
+.logo {
+    position: relative;
+    margin:0 auto;
+}
+
+#SocialHeader
+{
+    float:right;
+    margin-top:18px;
+}
+
+#HotLineHeader 
+{
+    padding: 0px 0px 0px 33px;
+    background: transparent url("/Uploads/images/ic-hotline-home.png") no-repeat scroll left center;
+    float:right;
+    margin-top:18px;
+    margin-right:18px;
+}
+
+#HotLineHeader p
+{
+    margin:0;
+    padding:0;
+}
+
+#text-Hotline
+{
+    font:10px arial;
+    font-weight:bold;
+}
+
+#num-Hotline
+{
+    font-family:UtmImpact;
+    color:red;
+}
+
+#BottomHeader
+{
+    margin-top:7px;
+}
+
+
+.slicknav_menu {display:none;}

@@ -1,0 +1,75 @@
+﻿#support {
+    width: 260px;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden !important;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    padding: 10px 10px 0px;
+    background: #FFA200 none repeat scroll 0% 0%;
+    z-index: 99999;
+}
+
+#top-sp {
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+#img1 {
+    float: left;
+    margin: 5px 5px 0px;
+}
+
+.img2 {
+    float: right;
+    display: block;
+    width: 20px;
+    height: 12px;
+    margin-top: 14px;
+    margin-right: 10px;
+    background: transparent url("images/arrow_up.gif") no-repeat scroll 0% 0%;
+}
+
+#top-sp h4 {
+    float: left;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    line-height: 40px;
+    text-align: center;
+    margin: 0px;
+}
+.down {
+    float: right !important;
+    display: block !important;
+    width: 20px !important;
+    height: 12px !important;
+    margin-top: 14px !important;
+    margin-right: 10px !important;
+    background: transparent url("images/arrow_down.gif") no-repeat scroll 0% 0% !important;
+}
+#body-sp {
+    display: none;
+    padding: 0px 30px 20px;
+    background: #FFF none repeat scroll 0% 0%;
+    height: 200px;
+    margin-top: 10px;
+    color: #212121;
+}
+#body-sp p {
+    text-align: center;
+    padding:5px 0px;
+    display: inline-block;
+    width: 100%;
+    color: #000;
+    border-top: 1px solid #CCC;
+}
+#body-sp p:first-child {
+    padding-top: 15px;
+    border-top: medium none;
+}

@@ -1,0 +1,35 @@
+﻿
+/*#MainMenu
+{
+    display:table;
+    width:auto;
+    float:right;
+}
+
+#MainMenu ul
+{
+    list-style:none;
+}
+
+#MainMenu ul li
+{
+    display:inline;
+   background:url(/content/images/sln-menu.png) no-repeat left center;
+   padding:0 15px;
+   text-decoration:none;
+   font-family:Verdana;
+}
+
+#MainMenu ul li:first-child
+{
+    background:none;
+}
+
+#MainMenu ul li:last-child
+{
+    padding-right:0;
+}
+
+#MainMenu ul li a:hover{
+    color:green;
+}*/

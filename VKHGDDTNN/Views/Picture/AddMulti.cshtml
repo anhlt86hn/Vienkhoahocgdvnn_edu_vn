@@ -1,0 +1,217 @@
+﻿@model VKHGDDTNN.Models.Image
+@{
+    ViewBag.Title = "Nhập Nhiều ảnh";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>NHẬP NHIỀU ẢNH 1 LÚC</h2>
+
+@section Scripts
+{
+    <!-- Validate Data -->
+    <script type="text/javascript">
+
+        (function ($, W, D) {
+
+            var JQUERY4U = {};
+
+            JQUERY4U.UTIL =
+            {
+                setupFormValidation: function () {
+                    //validation rules
+                    $("#Image-form").validate({
+                        rules: {
+                            Name: "required",
+                            Height: "required",
+                            Width: "required",
+                            Order: {
+                                required: true,
+                                number: true
+                            },
+                        },
+                        messages: {
+                            Name: "Phải nhập tên ảnh",
+                            Order: {
+                                required: "Phải nhập thứ tự",
+                                number: "Phải nhập kiểu số",
+                            },
+                            Width: {
+                                required: "Phải nhập độ rộng ảnh",
+                                number: "Phải nhập kiểu số",
+                            },
+                            Height: {
+                                required: "Phải nhập chiều cao ảnh",
+                                number: "Phải nhập kiểu số",
+                            },
+                        },
+                        submitHandler: function (form) {
+                            form.submit();
+                        }
+                    });
+                }
+            }
+
+            //when the dom has loaded setup form validation rules
+            $(D).ready(function ($) {
+                JQUERY4U.UTIL.setupFormValidation();
+            });
+
+        })(jQuery, window, document);
+    </script>
+    <!-- End Validate Data -->
+
+    <script type="text/javascript">
+        var editor;
+        function createEditor(languageCode, id) {
+            var editor = CKEDITOR.replace(id, {
+                language: languageCode
+            });
+        }
+
+        $(function () {
+            createEditor('vi', 'Description');
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#SelectImage").click(function () {
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (fileUrl) {
+                    $("#Image").val(fileUrl);
+                };
+                finder.popup();
+            });
+        });
+    </script>
+
+}
+
+<div class="container-fluid">
+    <div style="width: 100%; margin: 0 auto;">
+
+        <div id="Breadcrumb" class="Block Breadcrumb ui-widget-content ui-corner-top ui-corner-bottom">
+            <ul>
+                <li><a href='/admin/default'><i class="icon-home" style="font-size: 14px;"></i>Trang quản trị</a></li>
+                <li class='SecondLast'><a href='/admin/anh'>Danh sách ảnh</a></li>
+                <li class='Last'><a href='/admin/anh/them-nhieu'>Thêm nhiều ảnh mới</a></li>
+            </ul>
+        </div>
+
+        <div style="clear: both;"></div>
+
+        @using (Html.BeginForm("AddMulti", "Picture", FormMethod.Post, new { enctype = "multipart/form-data", @id = "Image-form", @class = "validate-form" }))
+        {
+            <div id="cph_Main_ContentPane">
+                <div class="widget">
+                    <!-- widget-title -->
+                    <div class="widget-title">
+                        <h4><i class="icon-reorder"></i>&nbsp;Thêm ảnh</h4>
+
+                        <!-- Button -->
+                        <div class="ui-corner-top ui-corner-bottom">
+                            <div id="toolbox">
+
+                                <div style="float: right;" class="toolbox-content">
+
+                                    <table class="toolbar">
+                                        <tr>
+                                            <td align="center">
+                                                <button type="submit" class="toolbar btn btn-info"><i class="icon-save"></i>&nbsp;Ghi lại</button>
+                                            </td>
+                                            <td align="center">
+                                                <a title="Quay lại" class="toolbar btn btn-info" href="javascript:history.go(-1)"><i class="icon-chevron-left"></i>&nbsp;Trở về</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Button -->
+
+                        <div id="hiddenToolBarScroll" class="scrollBox hidden">
+                            <h4><i class="icon-reorder"></i>&nbsp;Thêm mới ảnh</h4>
+                            <div class="FloatMenuBar">
+                                @*@Html.Partial("_PartialMenuRight")*@
+
+
+                                <div class="ui-corner-top ui-corner-bottom">
+                            <div id="toolbox">
+
+                                <div style="float: right;" class="toolbox-content">
+
+                                    <table class="toolbar">
+                                        <tr>
+                                            <td align="center">
+                                                <button type="submit" class="toolbar btn btn-info"><i class="icon-save"></i>&nbsp;Ghi lại</button>
+                                            </td>
+                                            <td align="center">
+                                                <a title="Quay lại" class="toolbar btn btn-info" href="javascript:history.go(-1)"><i class="icon-chevron-left"></i>&nbsp;Trở về</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- widget-title -->
+
+                    <!-- widget-body -->
+                    <div class="widget-body">
+                        <div id="tabs">
+                            <div id="tabs-1">
+
+                                <table class="admintable" style="width: 100%;">
+                                    <tr>
+                                        <td class="key">Vị trí đặt ảnh<span class="Required"></span></td>
+                                        <td>
+                                            @Html.DropDownList("Position")
+                                            <span class="tooltip-help"><span class="tooltipContent">
+                                                <p class="tooltiptitle">
+                                                    Vị trí của ảnh.
+                                                </p>
+                                                <p class="tooltipmessage">
+                                                    Vị trí của ảnh.
+                                                </p>
+                                            </span></span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="key">ảnh <span class="Required">*</span></td>
+                                        <td>
+                                            @Html.TextBox("Image", "", new { @class = "text" }) &nbsp;
+                                           
+                                            <input type="file" name="fileImg" id="fileImg" multiple />
+                                            <span class="tooltip-help"><span class="tooltipContent">
+                                                <p class="tooltiptitle">
+                                                    Nguồn ảnh
+                                                </p>
+                                                <p class="tooltipmessage">
+                                                    Nguồn ảnh. Chọn upload ảnh từ client hoặc chọn ảnh có sẵn trên server.
+                                                </p>
+                                            </span></span>
+                                        </td>
+                                    </tr>                                    
+
+
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- widget-body -->
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

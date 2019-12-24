@@ -1,0 +1,42 @@
+﻿#CommonFooter{width:100%;margin: auto;position: relative;background:#2897DA; /*url(images/bg-Footer.png) no-repeat top center;max-width:1366px*/}
+#CommonFooter {/*width:980px;*/margin:0 auto;}
+#CommonFooter .FooterTop{margin:0 auto;padding:0;float:none;}
+#CommonFooter .FooterTop .title {
+    /*font:normal 22px/20px 'MyriadProBoldCondensed';*/ 
+    font:normal 14px/10px 'MyriadProBoldCondensed';
+                                                  color:#fff;text-transform:uppercase;padding-bottom:10px;text-align:center;}
+#CommonFooter .FooterTop .noidung {
+    /*font: normal 14px/24px Arial;*/ 
+    font: normal 14px/24px MyriadProBoldCondensed; 
+    color:#fff;text-align:center;}
+
+#CommonContactFooter{position:relative; z-index:1}
+#CommonContactFooter .headCT {
+    /*font:normal 22px/20px 'MyriadProBoldCondensed';*/ 
+    font:normal 14px/10px 'MyriadProBoldCondensed';
+                              color:#fff;text-transform:uppercase;padding-bottom:15px;padding-top:20px;float:left}
+
+#CommonContactFooter .contentCT {padding:10px 0}
+#CommonContactFooter .contentCT .item-ct .map-ct{float:right;position:relative;z-index:2;
+                                                 /*font:normal 13px/25px 'Arial';*/ 
+                                                 font:normal 14px/10px 'Arial';
+                                                 color:#fff;padding-top:10px}
+
+
+#CommonFooterContent {margin:auto;background: /*#be7210*/#007E20;padding:10px;/*max-width:1366px*/}
+#CommonFooterContent .nd {min-height:20px;padding:0;margin:0 auto;float:none;}
+#CommonFooterContent .nd .banquyen {
+    font:normal 14px/18px 'Arial'; color:#fff;display:block;float:left;padding:0;margin:0;}
+#CommonFooterContent .nd .author {float:left;padding:0;margin:0;color:#fff;}
+
+#SubContactUsGoogleMapHome{float:right;width:471px;height:163px;background:#fff;border-radius:4px;margin-bottom:23px}
+#SubContactUsGoogleMapHome .ImageMaps {width:471px; height:163px; position:relative;padding:3px}
+#SubContactUsGoogleMapHome #map_canvas_footer { background:none!important; display:block; width:471px; height:163px; position:absolute}
+#SubContactUsGoogleMapHome .gm-style {width:465px!important;height:157px!important;border:none!important}
+
+#SocialNetwork {height:32px;display:table;margin:0 auto;float:none;padding:0;width:auto;}
+#SocialNetwork .img{height:32px;float:left}
+#SocialNetwork img{height:32px;float:left;margin-right:10px}
+.cb {clear:both;}
+.h10 {height:5px;}
+.h15 {height:15px;}

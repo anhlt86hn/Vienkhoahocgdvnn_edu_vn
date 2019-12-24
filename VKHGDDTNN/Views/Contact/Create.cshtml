@@ -1,0 +1,168 @@
+﻿@{
+    ViewBag.Title = "Liên hệ";
+    Layout = "~/Views/Shared/_SubLayout.cshtml";
+}
+
+<script type="text/javascript">
+    $(function () {
+        $('#formContact').submit(function () {
+            alert("Đăng ký thành công !!");
+            $(this).val('');
+        });
+    });
+
+    function resetContactForm() {
+        document.getElementById("formContact").reset();
+    }
+
+</script>
+
+<!-- Validate Data -->
+<script type="text/javascript">
+
+        (function ($, W, D) {
+
+            var JQUERY4U = {};
+
+            JQUERY4U.UTIL =
+            {
+                setupFormValidation: function () {
+                    //validation rules
+                    $("#formContact").validate({
+                        rules: {
+                            name: {
+                                required: true,
+                                //number: true
+                            },
+                            email: {
+                                required: true,
+                                number: true
+                            },
+                        },
+                        messages: {
+                            name: {
+                                required: "Phải nhập tên",
+                                //number: "Phải nhập kiểu số",
+                            },
+                            email: {
+                                required: "Phải nhập email",
+                                //number: "Phải nhập kiểu số",
+                            }
+                        },
+                        submitHandler: function (form) {
+                            form.submit();
+                        }
+                    });
+                }
+            }
+
+            //when the dom has loaded setup form validation rules
+            $(D).ready(function ($) {
+                JQUERY4U.UTIL.setupFormValidation();
+            });
+
+        })(jQuery, window, document);
+</script>
+<!-- End Validate Data -->
+
+
+
+
+
+<section class="col-8 main">
+    <div class="main-wrapper">
+        <div class="main-title">
+            <a class="title-nav" href="/"><span>Trang chủ</span></a><a class="title-nav" href="/lien-he"><span>Liên hệ</span></a>
+
+        </div>
+        <table class="col-12 table">
+            <tbody>
+                <tr>
+                    <td valign="top">
+                        <div class="box_contact">
+                            <div id="infoDealer" class="infoContact">
+                                <div class="info_dealer">
+                                    <h1 style="line-height: 30px; font-size: 20px; padding-bottom: 15px; font-family: Arial; word-spacing: 5px;">
+                                        VIỆN KHOA HỌC GIÁO DỤC VÀ NGHỀ NGHIỆP - HÀ NỘI<br>
+
+                                    </h1>
+
+                                    <table class="table-info" border="0" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <td class="first-td-info"><img alt="" src="Content/images/icon-address.png" style="width: 25px; height: 25px;"></td>
+                                                <td class="second-td-info">
+                                                    Trụ sở chính: Lô 0V3.04 Khu chức năng đô thị Xuân Phương, Xuân Phương, Nam Từ Liêm - Hà Nội<br />
+                                                    Văn phòng tuyển sinh: 26, ngõ 72 Nguyễn Trãi, Thanh Xuân - Hà Nội
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="first-td-info"><img alt="" src="Content/images/icon-email.png" style="width: 25px; height: 22px;"></td>
+                                                <td class="second-td-info">
+                                                    Mail: vienkhoahocgdvnn@gmail.com
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="first-td-info"><img alt="" src="Content/images/icon-phone.png" style="width: 25px; height: 27px;"></td>
+                                                <td class="second-td-info">
+                                                    Điện thoại: 0466 592 255 - 0463 275 959
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="first-td-info"><img alt="" src="Content/images/icon-phone.png" style="width: 25px; height: 27px;"></td>
+                                                <td class="second-td-info">
+                                                    Hotline: 0904 801 455 - 0946 298 408 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="first-td-info"><img alt="" src="Content/images/icon-web.png" style="width: 26px; height: 26px;"></td>
+                                                <td class="second-td-info">Website: vienkhoahocgdvnn.edu.vn</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <form id="formContact" name="formContact" class="form" method="post" action="/lien-he" onsubmit="return checkform(this)">
+                                <table class="tbl_contact" border="0" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td class="first-td-contact">Họ tên : <span class="font_err">(*)</span></td>
+                                            <td><input name="name" id="name" value="" class="textfiled" style="width:100%" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="first-td-contact">Email : <span class="font_err">(*)</span></td>
+                                            <td><input name="email" id="email" value="" class="textfiled" style="width:100%" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="first-td-contact">Điện thoại : <span class="font_err">(*)</span></td>
+                                            <td><input name="phone" id="phone" value="" class="textfiled" style="width:100%" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="first-td-contact">Tiêu đề : <span class="font_err">(*)</span></td>
+                                            <td><input name="title" id="title" value="" class="textfiled" style="width:100%" type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top">Nội dung : <span class="font_err">(*)</span></td>
+                                            <td><textarea name="content" id="content" class="textarea" rows="3" style="width:100%"></textarea></td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>
+                                                <br>
+                                                <button id="do_submit" name="do_submit" type="submit" class="btn_send" value="Gửi"></button>&nbsp;
+                                                <button id="btnReset" name="btnReset" type="reset" class="btn_cancel" value="Làm lại" href="javascript:void(0);" onclick="resetContactForm()"></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                            <div class="clear"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr></tr>
+            </tbody>
+        </table>
+    </div>
+</section>

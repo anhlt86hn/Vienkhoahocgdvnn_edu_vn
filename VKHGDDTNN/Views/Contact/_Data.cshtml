@@ -1,0 +1,139 @@
+﻿@model PagedList.IPagedList<VKHGDDTNN.Models.Contact>
+
+@{
+    Layout = null;
+}
+
+<!--Sử dụng cho Confirm delete-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".yesno").easyconfirm({
+            locale: { title: 'Xóa Nhóm bài viết này?', button: ['Hủy', 'Xóa'] }
+        });
+    })
+</script>
+
+<!--Sử dụng cho sắp xếp-->
+<script type="text/javascript">
+    $(function () {
+        ///
+        
+        $(document).on("click", "#aSortDate", function () {
+            ///your code
+            //alert("Handler for .click() called.");
+            var getSortDate = $("#aSortDate").attr('sortDate');
+            ///
+            jQuery.ajax({
+                url: '@Url.Action("Index", "Contact")',
+                type: 'Post',
+                contentType: 'application/json',
+                data: JSON.stringify({ sortDate: getSortDate }),
+                success: function (result) {
+                    $('#DataTable').html(result);
+                }
+            });
+            ///
+        });
+        ///
+
+        $(document).on("click", ".chkStatus", function () {
+            //your code
+            var getID = $(this).attr('id');
+            //alert(getID);
+            $.post("/admin/phan-hoi/nhieu-lenh", { "id": getID },
+                function (data) {
+                    $(".alert").replaceWith("<div class='alert alert-info'>" + data + "</div>");
+                    $(".alert").fadeOut(2000);
+                });
+            //
+        });
+        ///
+
+    });
+
+
+
+</script>
+                        
+<div id="DataTable">
+
+    <div class="row-fluid">
+        <div class="span3">
+            <div style="margin-top: 18px;">
+                Số Phản hồi: <span style='color: #A52A2A;'>@Model.Count</span> / <span style='color: #333;'>@Model.TotalItemCount</span>
+            </div>
+        </div> 
+        </div>
+    <div class="pagedlist-top">
+        @Html.Partial("_Paging")
+    </div>
+    <div>
+        <table class="table table-striped table-bordered dataTable table-hover" cellspacing="0" id="tableContact" style="border-collapse: collapse;">
+            <tr>
+                <th style="width: 20px;" scope="col" class="CheckBoxsmall">
+                    <input type="checkbox" onclick="Javascript: chkSelectAll_OnClick(this)" id="chkSelectAll" name="checkAll" />
+                    <input name="mPage" id="mPage" value="@ViewBag.mPage" hidden="hidden" />
+                    <input name="PageSize" id="PageSize" value="@ViewBag.PageSize" hidden="hidden" />
+                </th>
+                <th scope="col" id="name" style="width:300px;">
+                    @Html.Label("Họ tên")
+                </th>
+                <th scope="col" class="number" style="width: 800px;">Tiêu đề</th>
+                <th scope="col" class="number" style="width: 250px;">Email</th>
+                <th scope="col" class="number" style="width: 120px;">Điện thoại</th>
+                
+                <th scope="col" class="number" style="width: 200px; text-align: center">@Html.Label("Ngày gửi", new { @id = "aSortDate", sortDate = ViewBag.SortDateParm, style = "color: #646464;font-weight:400;" })</th>
+                <th scope="col" class="number" style="width: 50px; text-align: center">Đã xem</th>
+                <th scope="col" class="number" style="width: 150px; text-align: center">Chức năng</th>
+            </tr>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr style="background-color: #fff">
+                    <td align="center">
+                        @Html.CheckBox("chk" + Model[i].Id, new { id = "chkSelect", onclick = "Javascript:chkSelect_OnClick(this,0)", @class = "chk" })
+                    </td>
+                    <td style="text-align: left">
+                       @Model[i].Name
+                    </td>
+                    <td style="text-align: center">
+                        @Model[i].Title
+                    </td>
+                    <td style="text-align: center">
+                        @Model[i].Email
+                    </td>
+                    <td style="text-align: center">
+                        @Model[i].Phone
+                    </td>
+                    <td style="text-align: center">
+                        @Model[i].SDate
+                    </td>
+                    
+                    <td style="text-align: center">
+                        @Html.CheckBox("Status", @Model[i].Status == true ? true : false, new { @class = "chkStatus", @id = @Model[i].Id })
+                    </td>
+                    <td class="text-center">
+
+                        @*<a href="/admin/phan-hoi/xem-chi-tiet?id=@Model[i].Id" class="action-link-button" 
+                                                title="Xem chi tiết phản hồi"><i class="icon-plus"></i></a>*@
+
+                        <a href="/admin/phan-hoi/xem-chi-tiet?id=@Model[i].Id" class="action-link-button" 
+                                                title="Xem chi tiết nội dung phản hồi"><i class="icon-camera"></i></a>
+
+                        <a href="/admin/phan-hoi/xoa?id=@Model[i].Id&trang=@ViewBag.mPage&kichco=@ViewBag.PageSize" class="yesno action-link-button"
+                                                title="Bạn chắc chắn muốn xóa Phản hồi ?"><i class="icon-trash"></i></a>
+
+
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <!--Partial View phân trang-->
+    <div class="pagedlist-bottom">
+        @Html.Partial("_Paging")
+        </div>
+        <div style="clear: both;"></div>
+
+    </div>
+

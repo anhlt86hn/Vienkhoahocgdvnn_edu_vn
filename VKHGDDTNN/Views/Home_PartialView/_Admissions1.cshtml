@@ -1,0 +1,36 @@
+﻿<div class="main-wrapper home-box">
+    <div class="main-title">
+        <a href="@Html.Raw(ViewBag.MenuLink2)"><span>@Html.Raw(ViewBag.MenuName2)</span></a>
+    </div>
+    <div class="container">
+        <div class="col-4 mid-thumbnail">
+            <div class="mid-thumbnail-inner"></div>
+        </div>
+        <div class="col-8 mid-content">
+            <div class="sub-title">
+                <a href="/@Html.Raw(ViewBag.TopNewsLink2)" class="menu1">@Html.Raw(ViewBag.TopNewsName2)</a>
+            </div>
+            <p>
+                @Html.Raw(ViewBag.TopNewsDesc2)
+            </p>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-4 mid-cate">
+            <ul class="main-list mid-list">
+                <h4>Danh mục @Html.Raw(ViewBag.MenuName2)</h4>
+                @Html.Raw(ViewBag.GroupNewsList2)
+            </ul>
+        </div>
+        <div class="col-8 mid-news">
+            <ul class="col-8 main-list mid-list">
+                <h4>Các chương trình @Html.Raw(ViewBag.MenuName2) khác</h4>
+                @Html.Raw(ViewBag.NewsList2)
+            </ul>
+        </div>
+    </div>
+
+</div>
+

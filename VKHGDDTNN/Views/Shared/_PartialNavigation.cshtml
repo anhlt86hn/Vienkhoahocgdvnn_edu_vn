@@ -1,0 +1,196 @@
+﻿<div class="boder_menu">
+    <div id="menu">
+        <ul>
+           @if ((Request.Cookies["Username"].Values["Permiss"].ToString() == "3") || (Request.Cookies["Username"].Values["Permiss"].ToString() == "2") || (Request.Cookies["Username"].Values["Permiss"].ToString() == "1") || (Request.Cookies["Username"].Values["Permiss"].ToString() == "0"))
+           {
+            <li>
+                <a class="TopMenuItem" href="javascript:;">
+                    <span class="MenuText"><i class="icon-cogs"></i>CẤU HÌNH</span>
+                </a>
+                <ul>
+                    <li class="SubFirst">
+                        <a href="/admin/cau-hinh">
+                            <span class="SubMenuText"><i class="icon-cog"></i>
+                                Cấu hình
+                            </span>
+                        </a>
+                    </li>                                                      
+                </ul>
+            </li>
+            <li>
+                <a class="TopMenuItem" href="javascript:;">
+                    <span class="MenuText"><i class="icon-globe"></i>MENU</span>
+                </a>
+                <ul>
+                    <li class="SubFirst">
+                        <a href="/admin/menu">
+                            <span class="SubMenuText"><i class="icon-glass"></i>
+                                MENU
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </li> 
+                 <li>
+                <a class="TopMenuItem" href="javascript:;">
+                    <span class="MenuText"><i class="icon-bookmark"></i>BÀI VIẾT</span>
+                </a>
+                <ul>
+                    <li class="SubFirst">
+                        <a href="/admin/nhom-bai-viet">
+                            <span class="SubMenuText">
+                                <i class="icon-group"></i>
+                                Nhóm bài viết
+                            </span>
+                        </a>
+                    </li>
+                    <li class="SubFirst">
+                        <a href="/admin/bai-viet">
+                            <span class="SubMenuText">
+                                <i class="icon-book"></i>
+                                Bài viết
+                            </span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <a class="TopMenuItem" href="javascript:;">
+                    <span class="MenuText"><i class="icon-comments"></i>SẢN PHẨM</span>
+                </a>
+                <ul>                  
+                    <li class="SubFirst">
+                        <a href="/admin/default">
+                            <span class="SubMenuText">
+                                <i class="icon-film"></i>
+                                Danh mục sản phẩm
+                            </span>
+                        </a>                     
+                    </li>
+                  
+                    <li class="SubFirst">
+                        <a href="/admin/default">
+                            <span class="SubMenuText">
+                                <i class="icon-film"></i>
+                                Sản phẩm
+                            </span>
+                        </a>
+                
+                    </li>                 
+                </ul>
+            </li>               
+          
+            <li>
+                <a class="TopMenuItem" href="javascript:;">
+                    <span class="MenuText"><i class="icon-picture"></i>ẢNH</span>
+                </a>
+                <ul>
+               
+                    <li class="SubFirst">
+                        <a href="/admin/anh">
+                            <span class="SubMenuText">
+                                <i class="icon-picture"></i>
+                                Ảnh
+                            </span>
+                        </a>
+                    </li>      
+                  
+                </ul>
+            </li>
+               
+               
+              <li>
+                <a class="TopMenuItem" href="javascript:;">
+                    <span class="MenuText"><i class="icon-th-large"></i>THÀNH VIÊN</span>
+                </a>
+                <ul>
+                    <li class="SubFirst">
+                        <a href="/admin/thanh-vien">
+                            <span class="SubMenuText">
+                                Thành viên
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>   
+               
+            <li>
+                <a class="TopMenuItem" href="javascript:;">
+                    <span class="MenuText"><i class="icon-tags"></i>HỒ SƠ NHÂN VIÊN</span>
+                </a>
+                <ul>
+                    <li class="SubFirst">
+                        @*<a href="../../GroupEmployee/GroupEmployeeIndexot/">*@
+                            <a href="/admin/default">
+                                <span class="SubMenuText">
+                                    <i class="icon-group"></i>
+                                    Nhóm nhân viên
+                                </span>
+                            </a>
+                    </li>
+                    <li class="SubFirst">
+                        @*<a href="../../Employee/EmployeeIndexot/">*@
+                        <a href="/admin/default">
+                            <span class="SubMenuText">
+                                <i class="icon-pencil"></i>
+                                Hồ sơ nhân viên
+                            </span>
+                        </a>
+                    </li>                                    
+                </ul>
+            </li>    
+            <li>
+                <a class="TopMenuItem" href="javascript:;">
+                    <span class="MenuText"><i class="icon-file"></i>PHẢN HỒI</span>
+                </a>
+                <ul>   
+                    <li class="SubFirst">
+                        @*<a href="../../Customer/CustomerIndexot/">*@
+                        <a href="/admin/phan-hoi">
+                            <span class="SubMenuText">
+                                <i class="icon-gift"></i>
+                                Khách hàng
+                            </span>
+                        </a>
+                    </li>                 
+                </ul>
+            </li>   
+            @*<li>
+                <a class="TopMenuItem" href="javascript:;">
+                    <span class="MenuText"><i class="icon-exchange"></i>HỢP ĐỒNG</span>
+                </a>
+                <ul>   
+                    <li class="SubFirst">
+                        <a href="../../Contract/ContractIndexot/">
+                        <a href="/admin/default">
+                            <span class="SubMenuText">
+                                <i class="icon-credit-card"></i>
+                                Hợp đồng
+                            </span>
+                        </a>
+                    </li>                 
+                </ul>
+            </li>       
+            <li>
+                <a class="TopMenuItem" href="javascript:;">
+                    <span class="MenuText"><i class="icon-circle"></i>ĐƠN ĐẶT HÀNG</span>
+                </a>
+                <ul>   
+                    <li class="SubFirst">
+                        <a href="../../Order/OrderIndexot/">
+                        <a href="/admin/default">
+                            <span class="SubMenuText">
+                                <i class="icon-desktop"></i>
+                                Đơn đặt hàng (Order)
+                            </span>
+                        </a>
+                    </li>                 
+                </ul>
+            </li>*@                             
+         
+          
+           }               
+        </ul>
+    </div>
+</div>

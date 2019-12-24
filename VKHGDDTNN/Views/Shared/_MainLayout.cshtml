@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="vi">
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="content-language" content="vi" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="@ViewBag.des" />
+    <meta name="keywords" content="@ViewBag.key" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="vi-Vn">
+    <meta name="revisit-after" content="1 days">
+    <meta name="author" content="Rico">
+    <link rel="canonical" href="" />
+    <link rel="alternate" href="" hreflang="vi-vn" media="handheld" />
+    <link href="https://plus.google.com/+LuongAnh86" rel="author" />
+    <link rel="publisher" href="https://plus.google.com/+LuongAnh86/about" />
+    <link rel="SHORTCUT ICON" href="~/Content/Images/icon-logo.ico" type="image/x-icon" />
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/Fonts/FontFace.css" rel="stylesheet" />
+    <link href="~/Content/Header.css" rel="stylesheet" />
+    <link href="~/Content/sm-core-css.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/sm-blue.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/slicknav.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/skitter.styles.min.css" rel="stylesheet" />
+    <link href="~/Content/MainSlide.css" rel="stylesheet" />
+    <link href="~/Content/Content.css" rel="stylesheet" />
+    <link href="~/Content/Footer.css" rel="stylesheet" />
+    <link href="~/Content/Support.css" rel="stylesheet" />
+    @*<link href="~/Content/reset.css" rel="stylesheet" />*@
+    <link href="~/Content/Responsive.css" rel="stylesheet" />
+
+    <script src="~/Scripts/Html5.js"></script> @*the shiv code HTML5: for IE8 and earlier*@
+    <script type="text/javascript" language="javascript" src="scripts/jquery-1.9.1.min.js"></script>
+    @*<script type="text/javascript" language="javascript" src="scripts/jquery-1.10.2.min.js"></script>*@
+    <script src="~/Scripts/mapapi.js"></script>
+    <script src="~/Scripts/display.js"></script>
+    <script src="~/Scripts/GoogleMapInit.js"></script>
+    <script type="text/javascript" language="javascript" src="scripts/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" language="javascript" src="scripts/jquery.skitter.min.js"></script>
+    <script src="~/Scripts/jquery.smartmenus.js"></script>
+    <script src="~/Scripts/jquery.slicknav.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jcarousellite1.0.1.styles.js"></script>
+    <script src="~/Scripts/jcarousellite1.0.1.js"></script>
+    @*<script src="http://daynghebacha.edu.vn/skin/js/jquery-1.11.2.min.js"></script>*@
+
+    @*<script src="http://daynghebacha.edu.vn/skin/js/common.js"></script>*@
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
+ 
+    <script type="text/javascript">
+        $(function () {
+            $('body').append('<div id="backtotop"></div>');
+            $(window).scroll(function () {
+                var $toa_do = $(window).scrollTop();
+                if ($toa_do == 0) { $('#backtotop').fadeOut(); }
+                else { $('#backtotop').fadeIn() };
+            });
+            $('#backtotop').click(function () {
+                $('html,body').animate({ scrollTop: 0 }, 500);
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#menu').smartmenus({
+                markCurrentItem: true,
+                subMenusSubOffsetX: 1,
+                subMenusSubOffsetY: -8
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#menu').slicknav();
+        });
+    </script>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76602054-1', 'auto');
+  ga('send', 'pageview');
+
+    </script>
+</head>
+<body>
+    <section class="row">
+        <section class="col-12 body-content">
+        @{Html.RenderPartial("~/Views/Shared/_Header.cshtml");}
+        @{Html.RenderPartial("~/Views/Shared/_MainSlide.cshtml");}        
+            <section class="row">
+                <div class="col-10 main-content">
+                    @{Html.RenderPartial("~/Views/Shared/_Left.cshtml");}
+                    @RenderBody()
+                    @{Html.RenderPartial("~/Views/Shared/_Right.cshtml");}
+                </div>
+            </section>   
+        @{Html.RenderPartial("~/Views/Shared/_Linked.cshtml");}
+        @{Html.RenderPartial("~/Views/Shared/_Footer.cshtml");}
+        </section>
+    </section>
+    @{Html.RenderPartial("~/Views/Shared/_Support.cshtml");}
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)*@
+
+
+
+        <script type="text/javascript" language="javascript">
+            $(document).ready(function () {
+                $('.box_skitter_large').skitter({
+                    theme: 'clean',
+                    numbers_align: 'center',
+                    progressbar: true,
+                    dots: false,
+                    preview: false
+                });
+            });
+    </script>
+
+
+    @*<script type="text/javascript">
+        //Nested Side Bar Menu
+       
+       var menuids1 = ["sidebar-leftmenu"] //Enter id(s) of each Side Bar Menu's main UL, separated by commas
+
+        function initsidebarmenu() {
+            for (var i = 0; i < menuids1.length; i++) {
+                var ultags = document.getElementById(menuids1[i]).getElementsByTagName("ul")
+                for (var t = 0; t < ultags.length; t++) {
+                    ultags[t].parentNode.getElementsByTagName("a")[0].className += " has-submenu"
+                    if (ultags[t].parentNode.parentNode.id == menuids1[i]) //if this is a first level submenu
+                        ultags[t].style.left = ultags[t].parentNode.offsetWidth + "px" //dynamically position first level submenus to be width of main menu item
+                    else //else if this is a sub level submenu (ul)
+                        ultags[t].style.left = ultags[t - 1].getElementsByTagName("a")[0].offsetWidth + "px" //position menu to the right of menu item that activated it
+                    ultags[t].parentNode.onmouseover = function () {
+                        this.getElementsByTagName("ul")[0].style.display = "block"
+                    }
+                    ultags[t].parentNode.onmouseout = function () {
+                        this.getElementsByTagName("ul")[0].style.display = "none"
+                    }
+                }
+                for (var t = ultags.length - 1; t > -1; t--) { //loop through all sub menus again, and use "display:none" to hide menus (to prevent possible page scrollbars
+                    ultags[t].style.visibility = "visible"
+                    ultags[t].style.display = "none"
+                }
+            }
+        }
+
+        if (window.addEventListener)
+            window.addEventListener("load", initsidebarmenu, false)
+        else if (window.attachEvent)
+            window.attachEvent("onload", initsidebarmenu)
+
+    </script>*@
+
+    <script type="text/javascript">
+        //Nested Side Bar Menu
+
+        var menuids2 = ["sidebar-rightmenu"] //Enter id(s) of each Side Bar Menu's main UL, separated by commas
+
+        function initsidebarmenu() {
+            for (var i = 0; i < menuids2.length; i++) {
+                var ultags = document.getElementById(menuids2[i]).getElementsByTagName("ul")
+                for (var t = 0; t < ultags.length; t++) {
+                    ultags[t].parentNode.getElementsByTagName("a")[0].className += " has-submenu"
+                    if (ultags[t].parentNode.parentNode.id == menuids2[i]) //if this is a first level submenu
+                        ultags[t].style.left = ultags[t].parentNode.offsetWidth + "px" //dynamically position first level submenus to be width of main menu item
+                    else //else if this is a sub level submenu (ul)
+                        ultags[t].style.left = ultags[t - 1].getElementsByTagName("a")[0].offsetWidth + "px" //position menu to the right of menu item that activated it
+                    ultags[t].parentNode.onmouseover = function () {
+                        this.getElementsByTagName("ul")[0].style.display = "block"
+                    }
+                    ultags[t].parentNode.onmouseout = function () {
+                        this.getElementsByTagName("ul")[0].style.display = "none"
+                    }
+                }
+                for (var t = ultags.length - 1; t > -1; t--) { //loop through all sub menus again, and use "display:none" to hide menus (to prevent possible page scrollbars
+                    ultags[t].style.visibility = "visible"
+                    ultags[t].style.display = "none"
+                }
+            }
+        }
+
+        if (window.addEventListener)
+            window.addEventListener("load", initsidebarmenu, false)
+        else if (window.attachEvent)
+            window.attachEvent("onload", initsidebarmenu)
+
+    </script>
+
+    <div id="fb-root"></div>
+
+    <script>
+(function (d, s, id) {
+
+    var js, fjs = d.getElementsByTagName(s)[0];
+
+    if (d.getElementById(id)) return;
+
+    js = d.createElement(s); js.id = id;
+
+    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5";
+
+    fjs.parentNode.insertBefore(js, fjs);
+
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+</body>
+</html>

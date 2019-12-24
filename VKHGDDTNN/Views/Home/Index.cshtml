@@ -1,0 +1,37 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@using VKHGDDTNN.Models;
+
+@{
+    ViewBag.Title = @Html.Raw(ViewBag.tit);
+    ViewBag.des = @Html.Raw(ViewBag.des);
+    ViewBag.key = @Html.Raw(ViewBag.key);
+    Layout = "~/Views/Shared/_MainLayout.cshtml";      
+}
+   
+<section class="col-8 main">   
+    @{Html.RenderAction("_LatestNews", "Home_PartialView");}
+    @{Html.RenderAction("_Training", "Home_PartialView");}
+    @{Html.RenderAction("_Admissions", "Home_PartialView");}
+</section>
+       
+
+
+
+
+ @*@{Html.RenderAction("_ThucDon", "Home_PartialView");}
+    @{Html.RenderAction("_QuangCao", "Home_PartialView");}
+    <section id="BottomMain">
+        @{Html.RenderAction("_GioiThieu", "Home_PartialView");}
+        @{Html.RenderAction("_BoSuuTap", "Home_PartialView");}
+        @{Html.RenderAction("_DoiTac", "Home_PartialView");}
+    </section>
+
+<section id="QuangCao">
+        @{Html.RenderAction("_QuangCao", "Home_PartialView");}
+    </section>
+
+    <section id="GioiThieu">@{Html.RenderAction("_GioiThieu", "Home_PartialView");}</section>
+    <section id="BoSuuTap">@{Html.RenderAction("_BoSuuTap", "Home_PartialView");}</section>
+    <section id="DoiTac">@{Html.RenderAction("_DoiTac", "Home_PartialView");}</section>*@
+

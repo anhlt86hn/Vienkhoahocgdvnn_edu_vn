@@ -1,0 +1,97 @@
+﻿<section class="col-2 right">
+   
+    <div id="announcement" class="sidebar-wrapper">
+                @{Html.RenderAction("_Announcement", "Home_PartialView");}
+    </div>
+    <div id="announcement2" class="sidebar-wrapper">
+        @{Html.RenderAction("_Announcement2", "Home_PartialView");}
+    </div>
+    @*<div id="announcement3" class="sidebar-wrapper">
+        @{Html.RenderAction("_Announcement3", "Home_PartialView");}
+    </div>*@
+    <div id="announcement4" class="sidebar-wrapper">
+        @{Html.RenderAction("_Announcement4", "Home_PartialView");}
+    </div>
+    <div id="fb-social" class="sidebar-wrapper">
+        <div class="fb-page" data-href="https://www.facebook.com/Vi%E1%BB%87n-Khoa-H%E1%BB%8Dc-Gi%C3%A1o-D%E1%BB%A5c-v%C3%A0-Ngh%E1%BB%81-Nghi%E1%BB%87p-1746095762286499" data-width="210" data-height="250" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false">
+            <div class="fb-xfbml-parse-ignore">
+                <blockquote cite="https://www.facebook.com/Vi%E1%BB%87n-Khoa-H%E1%BB%8Dc-Gi%C3%A1o-D%E1%BB%A5c-v%C3%A0-Ngh%E1%BB%81-Nghi%E1%BB%87p-1746095762286499">
+                    <a href="https://www.facebook.com/Vi%E1%BB%87n-Khoa-H%E1%BB%8Dc-Gi%C3%A1o-D%E1%BB%A5c-v%C3%A0-Ngh%E1%BB%81-Nghi%E1%BB%87p-1746095762286499"></a>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+    @*<div id="register" class="sidebar-wrapper">
+        <div class="main-title">Đăng ký trực tuyến</div>
+        <table>
+            @using (Html.BeginForm("Register", "Home_PartialView", FormMethod.Post, new { @name = "form_reg", @id = "form_reg", @onsubmit = "return IsCheck()" }))
+            {
+              <tr><td class="left-td">Họ tên</td><td class ="right-td">@Html.TextBox("txtName", "", new { @id = "NameId" })</td></tr> 
+                <tr><td class="left-td">Ngày sinh</td><td class="right-td">@Html.TextBox("txtDate", "", new { @id = "DateId" })</td></tr>
+                <tr><td class="left-td">Quê quán</td><td class="right-td">@Html.TextBox("txtAddress", "", new { @id = "AddressId" })</td></tr>
+                <tr><td class="left-td">Ngành học</td><td class="right-td">@Html.TextBox("txtProject", "", new { @id = "ProjectId" })</td></tr>
+                 <tr><td class="left-td"><span>Thời gian</span></td><td class="right-td">@Html.TextBox("txtTime", "", new { @id = "TimeId" })</td></tr>
+                 <tr><td class="left-td">Nội dung</td><td class="right-td">@Html.TextArea("txtContent", "", new { @cols = "20", @rows = "5" })</td></tr>
+                 <tr><td class="left-td">Điện thoại</td><td class="right-td">@Html.TextBox("txtPhone", "", new { @id = "PhoneId" })</td></tr>
+                <tr><td colspan="2" style="width:auto;margin:0 auto;"><input class="submit_reg" type="submit" value="ĐĂNG KÝ" /></td></tr>
+            }
+        </table>    
+    </div>*@
+
+  
+
+</section>
+
+@*<script>
+
+    $(function () {
+        $(".date").datepicker({
+            dateFormat: 'dd/mm/yy', changeMonth: true, yearRange: "-60:+0",
+            changeYear: true
+        });
+    });
+    jQuery(function ($) {
+        $.datepicker.regional['vi'] = {
+            closeText: 'Đóng',
+            prevText: '&#x3c;Trước',
+            nextText: 'Tiếp&#x3e;',
+            currentText: 'Hôm nay',
+            monthNames: ['Tháng Một', 'Tháng Hai', 'Tháng Ba', 'Tháng Tư', 'Tháng Năm', 'Tháng Sáu',
+                'Tháng Bảy', 'Tháng Tám', 'Tháng Chín', 'Tháng Mười', 'Th.Mười Một', 'Th.Mười Hai'],
+            monthNamesShort: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
+                'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+            dayNames: ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'],
+            dayNamesShort: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+            dayNamesMin: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+            weekHeader: 'Tu',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 0,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+        $.datepicker.setDefaults($.datepicker.regional['vi']);
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.buton_reg').on('click', function () {
+            var url = "/";
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $('.form_reg').serialize(),
+                success: succ
+            })
+        })
+    });
+
+    function succ(data, status) {
+
+        $('#body-reg').html(data);
+
+    }
+
+</script>*@

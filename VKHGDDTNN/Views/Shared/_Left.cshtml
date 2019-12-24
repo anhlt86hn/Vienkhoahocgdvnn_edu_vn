@@ -1,0 +1,44 @@
+﻿<section class="col-2 left">
+    <div id="right-menu" class="sidebar-wrapper">
+        <div class="main-title">
+            THÔNG TIN CHUNG
+        </div>
+        <ul id="sidebar-rightmenu" class="main-list">
+            @{Html.RenderAction("_RightMenu", "Home_PartialView");}
+        </ul>
+    </div>
+
+    <div id="left-menu" class="sidebar-wrapper">
+        <div class="main-title">
+            ĐÀO TẠO
+        </div>
+        <ul id="sidebar-leftmenu" class="main-list">
+            @{Html.RenderAction("_LeftMenu1", "Home_PartialView");}
+        </ul>
+    </div>
+
+    <div id="left-menu" class="sidebar-wrapper">
+        <div class="main-title">
+            TUYỂN SINH
+        </div>
+        <ul id="sidebar-leftmenu" class="main-list">
+            @{Html.RenderAction("_LeftMenu2", "Home_PartialView");}
+        </ul>
+    </div>
+
+    <div id="statistic" class="sidebar-wrapper">
+        <div class="main-title">
+            THỐNG KÊ TRUY CẬP
+        </div>
+        @{Html.RenderAction("Statistic", "Home_PartialView");}
+    </div>
+
+    @*<div id="linked" class="sidebar-wrapper">
+        <div class="main-title">Liên kết</div>      
+                        <a href="/" class="" target="_self" title="Tạp chí khoa học giáo dục"><img src="~/Content/Images/tap-chi-khoa-hoc-giao-duc.jpg" /></a>     
+                        <a href="/" class="" target="_self" title="Thông tin Giáo dục quốc tế"><img src="~/Content/Images/giao-duc-quoc-te.jpg" /></a>          
+                        <a href="/" class="" target="_self" title="Hệ thống đề tài"><img src="~/Content/Images/he-thong-de-tai.jpg" /></a>
+                        <a href="/" class="" target="_blank" title="Chuyên mục giáo dục đặc biệt"><img src="~/Content/Images/giao-duc-dac-biet.jpg" /></a>    
+    </div>*@
+
+</section>

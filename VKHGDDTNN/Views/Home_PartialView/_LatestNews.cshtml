@@ -1,0 +1,28 @@
+﻿
+<div id="latest-news" class="main-wrapper">
+        <div class="col-5 ln-left">
+            <div class="thumbnail">
+               <img src="@Html.Raw(ViewBag.TopNewsImg)" /> 
+            </div>
+            <div class="summary">
+                <div class="title">
+                    <a href="/@Html.Raw(ViewBag.TopNewsLink)"><b>@Html.Raw(ViewBag.TopNewsName)</b></a>
+                </div>
+                <div class="summary-detail">
+                    @Html.Raw(ViewBag.TopNewsDesc)
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="col-7 ln-right">
+            <div class="title">
+                Tin tức mới nhất
+            </div>
+
+            <ul class="main-list ln-list">
+                @Html.Raw(ViewBag.LatestNews)
+            </ul>
+        </div>
+ 
+</div>

@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = @Html.Raw(ViewBag.tit);
+    ViewBag.des = @Html.Raw(ViewBag.des);
+    ViewBag.key = @Html.Raw(ViewBag.key);
+    Layout = "~/Views/Shared/_SubLayout.cshtml";
+}
+@model PagedList<VKHGDDTNN.Models.Contact>
+
+<div id="contactus">
+    <div class="cb"></div>
+    <div class="contentct">
+        <div class="Left">
+            <div class="tipp">
+                <span style="font-size:14px;">
+                    C&aacute;m ơn bạn đ&atilde; gh&eacute; thăm website <span style="color:#1f7f00;">Vienkhoahocgdvnn.edu.vn</span><br />
+                    Bạn c&oacute; thể li&ecirc;n hệ với ch&uacute;ng t&ocirc;i theo một trong những c&aacute;ch sau:<br />
+                    <br />
+                    <span style="color:#1f7f00;"><span style="font-family: MyriadProBoldCondensed;"><span style="font-size: 26px;"><span>VIỆN KHOA HỌC GIÁO DỤC VÀ NGHỀ NGHIỆP</span></span></span></span>
+                </span><br />
+                <br />
+                <span style="font-size:14px;">
+                    <strong>Địa chỉ: </strong><br />
+                    <strong>Điện thoại:</strong> <span style="color:#ff0000;">(04)</span> - Hotline: <span style="color:#ff0000;">09</span><br />
+                    <strong>Email: </strong>vien...@gmail.com - <strong>Website: </strong>www.vienkhoahocgdvnn.edu.vn
+                </span>
+            </div>
+
+            <div class="cb h20"></div>
+            <div id="SubContactUsGoogleMap">
+                <div class="mapborder">
+                    <div id="map_canvas"></div>
+                </div>
+                <script type="text/javascript">
+                    jQuery(document).ready(function () {
+                        initialize("21.027589231855476", "105.75544595718384", "<div class='infowindow'><b>VIỆN KHOA HỌC GIÁO DỤC VÀ NGHỀ NGHIỆP</b><br/>Địa chỉ: <br/>Điện thoại: <b>(04)</b></b><br/>Email: <b></b></div>");
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="Right">
+            <div class='ContentPage'>
+                <div class='ContactUsInfo'>
+                    Mời bạn điền vào mẫu thư liên lạc và gửi đi cho chúng tôi. Các chuyên viên tư vấn của <a class='vn' href='/'>chúng tôi</a> sẽ trả lời bạn trong thời gian sớm nhất.
+                </div>
+                <div class='cb h15'><!----></div>
+
+                <div class='h10'><!----></div>
+                <div class='KhungMar'>
+                    <span class="tb"><input name="DisplayLoadControl1$ctl00$txtHoTen" type="text" id="DisplayLoadControl1_ctl00_txtHoTen" class="required textBox" placeholder="Họ tên *" /></span>
+                    <div class='cb'><!----></div>
+                </div>
+                <div class='h10'><!----></div>
+                <div class='KhungMar'>
+                    <span class="tb"><input name="DisplayLoadControl1$ctl00$txtEmail" type="text" id="DisplayLoadControl1_ctl00_txtEmail" class="required textBoxPhone" placeholder="Email *" /></span>
+                    <div class="cb"></div>
+                </div>
+
+                <div class="cb h10"></div>
+                <div class='KhungMar'>
+                    <span class="tb"><input name="DisplayLoadControl1$ctl00$txtCongTy" type="text" id="DisplayLoadControl1_ctl00_txtCongTy" class="required textBox" placeholder="Tiêu đề *" /></span>
+                    <div class='cb'><!----></div>
+                </div>
+                <div class='h10'><!----></div>
+
+                <div class='KhungMar'>
+                    <span class="tb">
+                        <textarea name="DisplayLoadControl1$ctl00$txtNoiDung" rows="2" cols="20" id="DisplayLoadControl1_ctl00_txtNoiDung" class="required textBoxMul" placeholder="Nội dung liên hệ *"></textarea>
+                    </span>
+                    <div class='cb'><!----></div>
+                </div>
+                <div class='h10'><!----></div>
+                <div class='KhungMar'>
+
+                    <a onclick="return CheckInputContactUs();" id="btnContactUs2" class="btnContactUs" href="javascript:__doPostBack(&#39;DisplayLoadControl1$ctl00$btnContactUs2&#39;,&#39;&#39;)">Gửi yêu cầu</a>
+                    <div class='cb'><!----></div>
+                </div>
+
+                <div class='h10'><!----></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function CheckInputContactUs() {
+        var firstId = '';
+        var pass = true;
+        var errdiv = '<div class="cb"></div><div class="errorms">Bắt buộc điền</div>';
+        jQuery(".errorms").remove();
+        jQuery(".notfilled").removeClass("notfilled");
+
+        jQuery(".required").each(function () {
+            if (this.value.length < 1) {
+                pass = false;
+                jQuery(this).addClass("notfilled");
+
+                jQuery(this).parent().append(errdiv);
+                //this.focus();
+                if (firstId.length < 1)
+                    firstId = this.id;
+            }
+        });
+        if (!pass)
+            document.getElementById(firstId).focus();
+        else {
+            if (!CheckEmail('#DisplayLoadControl1_ctl00_txtEmail')) {
+                pass = false;
+                document.getElementById('DisplayLoadControl1_ctl00_txtEmail').focus();
+            }
+        }
+
+        return pass;
+    }
+</script>

@@ -1,0 +1,50 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@using VKHGDDTNN.Models;
+@model PagedList.IPagedList<VKHGDDTNN.Models.Menu>
+@{
+    ViewBag.Title = @Html.Raw(ViewBag.tit);
+    ViewBag.des = @Html.Raw(ViewBag.des);
+    ViewBag.key = @Html.Raw(ViewBag.key);
+    Layout = "~/Views/Shared/_SubLayout.cshtml";
+}
+
+<section class="col-8 main">
+    <div class="main-wrapper home-box">
+        <div class="main-title">
+            <a class="title-nav" href="/"><span>Trang chủ</span></a><a class="title-nav" href="@Html.Raw(ViewBag.MenuLink)"><span>@Html.Raw(ViewBag.MenuName)</span></a>
+
+        </div>
+
+        @*@Html.Raw(ViewBag.StrList)*@
+
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="col-12 container list-news">
+                <div class="col-4 mid-thumbnail">
+                    <div class="mid-thumbnail-inner">
+                        <img src="@Model[i].Image" alt="@Model[i].Name" />
+                    </div>
+                </div>
+                <div class="col-8 mid-content">
+                    <div class="sub-title">
+                        <a href="@Model[i].Link" class="menu1"><h4>@Model[i].Name</h4></a>
+                    </div>
+                    @Html.Raw(@Model[i].Content)
+                </div>
+            </div>
+
+        }
+
+
+        <div class="pagedlist-bottom">
+            @Html.PagedListPager(Model, page => Url.Action("MenuList", "NewsView", new { page = page }), (PagedListRenderOptions)ViewBag.ship)
+        </div>
+    </div>
+
+</section>
+
+
+
+
+

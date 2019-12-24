@@ -1,0 +1,57 @@
+﻿#IntroHome
+{
+    width:295px;
+    height:280px;
+}
+
+#IntroHome article
+{
+    width:295px;
+        height:280px;
+        margin:0;
+        padding:0;
+        float:left;
+    
+}
+
+#IntroHome header a 
+{
+     width:295px;
+    height:39px;
+}
+#IntroHome header
+{
+    background:url(/content/images/bg-title-introhome-2.png);
+    width:295px;
+    height:39px;
+}
+#IntroHome figure
+{
+    width:107px;height:107px;
+    margin:11px 15px 8px 1px;
+      /*padding:8px 15px 8px 1px;*/
+    float:left;
+    margin-bottom:1px;
+}
+
+
+#IntroHome .des
+{
+    /*margin-top:13px;*/
+    padding-top:13px;
+    text-align:justify;
+    width:171px;
+    height:102px;
+    float:left;
+        font-size:10pt;
+}
+
+#IntroHome .content
+{
+   width:295px;
+   height:114px;
+   margin-top:1px;
+   text-align:justify;
+   float:left;
+      font-size:10pt;
+}

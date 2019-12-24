@@ -1,0 +1,101 @@
+﻿body {
+   margin:0;
+   padding:0;
+    height:auto;
+    min-height:100% !important;
+    /*font-size: 62.5%;*/
+    font-family: Calibri;
+    color: #232323;
+    display: block;
+    /*background:url(images/bg.png) repeat scroll 0% 0%;*/
+     font: 12px arial,helvetica,sans-serif;
+     /*font-family: 'MyriadProCondensed';
+     font-size:12px;*/
+text-align: left;
+/*text-align: justify;*/
+}
+
+
+header, footer, nav, section, article 
+{
+    display: block;
+}
+
+
+/* Clear
+-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+}
+
+/* "Back To Top" Button
+-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+#backtotop {
+    height: 48px;
+    width: 48px;
+    position: fixed;
+    /*bottom: 25px;
+    right: 30px;*/
+    bottom:300px;
+    right:5px;
+    display: none;
+    background: transparent url("images/backtotop.png") no-repeat scroll 0% 0%;
+    cursor: pointer;
+}
+
+/* Responsive Grid-View
+-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.row:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+[class*="col-"] {
+    float: left;
+    padding:15px;
+ -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+          box-sizing: border-box;
+          /*font-size:1.4em;*/
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+.body-content 
+{
+ 
+    margin:0 auto;
+    height:auto;
+    padding:0;
+    display:table;
+    min-height:100% !important;
+    /*background:transparent scroll 0% 0%;*/
+    /*background:white;*/
+    box-shadow: 0px 0px 7px #CCC;
+    overflow:hidden;
+}
+
+
+td, th
+{
+    line-height:18px;
+}
+
